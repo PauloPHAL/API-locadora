@@ -9,7 +9,7 @@ import java.text.ParseException;
 import java.util.Date;
 
 @Data
-@Entity()
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,17 +20,18 @@ public class Classe implements Serializable {
     @JsonProperty("_id")
     private int id;
 
+    @Column(length = 50)
     private String nome;
+    @Column(length = 50)
     private int valor;
 
     @Column (updatable = false)
-    private String dataDevolucao;
+    @Temporal (TemporalType.DATE)
+    private Date dataDevolucao;
 
-    public Classe(RequestClasse requestClasse){
-        this.nome = requestClasse.nome();
-        this.valor = requestClasse.valor();
-        this.dataDevolucao = requestClasse.dataDevolucao();
+    public Classe(String nome, int valor, Date dataDevolucao) {
+        this.nome = nome;
+        this.valor = valor;
+        this.dataDevolucao = dataDevolucao;
     }
-
-
 }
