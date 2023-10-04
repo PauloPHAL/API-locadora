@@ -1,4 +1,9 @@
 package com.example.locadorabackend.Domain.diretor;
 
-public record RequestDiretor(String nome) {
+import jakarta.validation.constraints.NotBlank;
+
+public record RequestDiretor(
+        int id,
+        @NotBlank
+        String nome) {
 }

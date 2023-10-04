@@ -1,6 +1,10 @@
 package com.example.locadorabackend.Domain.actor;
 
-public record RequestActor (String nome){
+import jakarta.validation.constraints.NotBlank;
+
+public record RequestActor (int id,
+                            @NotBlank
+                            String nome){
 
 
 }

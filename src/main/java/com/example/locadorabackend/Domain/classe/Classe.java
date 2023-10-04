@@ -34,4 +34,28 @@ public class Classe implements Serializable {
         this.valor = valor;
         this.dataDevolucao = dataDevolucao;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public void setDataDevolucao(Date dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
+    }
 }

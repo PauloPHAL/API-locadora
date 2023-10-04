@@ -26,4 +26,12 @@ public class Diretor implements Serializable {
     public Diretor(RequestDiretor requestDiretor){
         this.nome = requestDiretor.nome();
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
 }
