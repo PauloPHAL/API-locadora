@@ -44,11 +44,11 @@ public class AtorControler {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Actor> atualizarAtor(@PathVariable Long id, @RequestBody Actor atorAtualizado) {
+    public ResponseEntity<Actor> atualizarAtor(@PathVariable Long id, @RequestBody @Validated RequestActor data) {
         Optional<Actor> optionalAtor = actorRepository.findById(String.valueOf(id));
         if (optionalAtor.isPresent()) {
             Actor ator = optionalAtor.get();
-            ator.setNome(atorAtualizado.getNome());
+            ator.setNome(data.nome());
             actorRepository.save(ator);
             return ResponseEntity.ok(ator);
         } else {

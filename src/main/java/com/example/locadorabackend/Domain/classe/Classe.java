@@ -18,7 +18,7 @@ public class Classe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("_id")
-    private int id;
+    private Long id;
 
     @Column(length = 50)
     private String nome;

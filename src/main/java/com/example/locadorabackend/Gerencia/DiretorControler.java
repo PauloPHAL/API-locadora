@@ -26,6 +26,12 @@ public class DiretorControler {
         return diretorRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Diretor> buscarDiretor(@PathVariable Long id) {
+        Optional<Diretor> diretor = diretorRepository.findById(String.valueOf(id));
+        return diretor.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping
     public ResponseEntity setActor(@RequestBody @Validated RequestDiretor data){
         Diretor diretor = new Diretor(data);
@@ -34,11 +40,11 @@ public class DiretorControler {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Diretor> atualizarDiretor(@PathVariable Long id, @RequestBody Diretor diretorAtualizado) {
+    public ResponseEntity<Diretor> atualizarDiretor(@PathVariable Long id, @RequestBody @Validated RequestDiretor data) {
         Optional<Diretor> optionalDiretor = diretorRepository.findById(String.valueOf(id));
         if (optionalDiretor.isPresent()) {
             Diretor diretor = optionalDiretor.get();
-            diretor.setNome(diretorAtualizado.getNome());
+            diretor.setNome(data.nome());
             diretorRepository.save(diretor);
             return ResponseEntity.ok(diretor);
         } else {

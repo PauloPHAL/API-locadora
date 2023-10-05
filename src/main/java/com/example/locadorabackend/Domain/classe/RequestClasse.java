@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public record RequestClasse(
-        int id,
+        Long id,
         @NotBlank
         String nome,
         @NotBlank

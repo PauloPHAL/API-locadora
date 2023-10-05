@@ -4,6 +4,7 @@ import com.example.locadorabackend.Domain.actor.Actor;
 import com.example.locadorabackend.Domain.classe.Classe;
 import com.example.locadorabackend.Domain.classe.ClasseRepository;
 import com.example.locadorabackend.Domain.classe.RequestClasse;
+import com.example.locadorabackend.Domain.diretor.Diretor;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,12 @@ public class ClasseControler {
         return classeRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Classe> buscarClasse(@PathVariable Long id) {
+        Optional<Classe> classe = classeRepository.findById(String.valueOf(id));
+        return classe.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
     @PostMapping
     public ResponseEntity setActor(@RequestBody @Validated RequestClasse data) {
         Date dataDevolucao = data.getDataDevolucaoAsDate();
@@ -43,13 +50,13 @@ public class ClasseControler {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Classe> atualizarClasse(@PathVariable Long id, @RequestBody Classe classeAtualizada) {
+    public ResponseEntity<Classe> atualizarClasse(@PathVariable Long id, @RequestBody @Validated RequestClasse data) {
         Optional<Classe> optionalClasse = classeRepository.findById(String.valueOf(id));
         if (optionalClasse.isPresent()) {
             Classe classe = optionalClasse.get();
-            classe.setNome(classeAtualizada.getNome());
-            classe.setValor(classeAtualizada.getValor());
-            classe.setDataDevolucao(classeAtualizada.getDataDevolucao());
+            classe.setNome(data.nome());
+            classe.setValor(data.valor());
+            classe.setDataDevolucao(data.getDataDevolucaoAsDate());
             classeRepository.save(classe);
             return ResponseEntity.ok(classe);
         } else {
