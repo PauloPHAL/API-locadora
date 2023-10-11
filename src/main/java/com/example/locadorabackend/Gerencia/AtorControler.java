@@ -4,9 +4,6 @@ package com.example.locadorabackend.Gerencia;
 import com.example.locadorabackend.Domain.actor.Actor;
 import com.example.locadorabackend.Domain.actor.ActorRepository;
 import com.example.locadorabackend.Domain.actor.RequestActor;
-import jakarta.transaction.Transactional;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +29,7 @@ public class AtorControler {
 
     @GetMapping("/{id}")
     public ResponseEntity<Actor> buscarAtor(@PathVariable Long id) {
-        Optional<Actor> ator = actorRepository.findById(String.valueOf(id));
+        Optional<Actor> ator = actorRepository.findById(id);
         return ator.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
@@ -45,7 +42,7 @@ public class AtorControler {
 
     @PutMapping("/{id}")
     public ResponseEntity<Actor> atualizarAtor(@PathVariable Long id, @RequestBody @Validated RequestActor data) {
-        Optional<Actor> optionalAtor = actorRepository.findById(String.valueOf(id));
+        Optional<Actor> optionalAtor = actorRepository.findById(id);
         if (optionalAtor.isPresent()) {
             Actor ator = optionalAtor.get();
             ator.setNome(data.nome());
@@ -58,9 +55,9 @@ public class AtorControler {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> excluirAtor(@PathVariable Long id) {
-        Optional<Actor> optionalAtor = actorRepository.findById(String.valueOf(id));
+        Optional<Actor> optionalAtor = actorRepository.findById(id);
         if (optionalAtor.isPresent()) {
-            actorRepository.deleteById(String.valueOf(id));
+            actorRepository.deleteById(id);
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();

@@ -1,6 +1,7 @@
 package com.example.locadorabackend.Domain.classe;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,7 +10,8 @@ public record RequestClasse(
         Long id,
         @NotBlank
         String nome,
-        @NotBlank
+
+        @NotNull
         int valor,
         @NotBlank
         String dataDevolucao

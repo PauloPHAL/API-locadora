@@ -33,7 +33,7 @@ public class ClasseControler {
 
     @GetMapping("/{id}")
     public ResponseEntity<Classe> buscarClasse(@PathVariable Long id) {
-        Optional<Classe> classe = classeRepository.findById(String.valueOf(id));
+        Optional<Classe> classe = classeRepository.findById(id);
         return classe.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
@@ -51,7 +51,7 @@ public class ClasseControler {
 
     @PutMapping("/{id}")
     public ResponseEntity<Classe> atualizarClasse(@PathVariable Long id, @RequestBody @Validated RequestClasse data) {
-        Optional<Classe> optionalClasse = classeRepository.findById(String.valueOf(id));
+        Optional<Classe> optionalClasse = classeRepository.findById(id);
         if (optionalClasse.isPresent()) {
             Classe classe = optionalClasse.get();
             classe.setNome(data.nome());
@@ -66,9 +66,9 @@ public class ClasseControler {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> excluirClasse(@PathVariable Long id) {
-        Optional<Classe> optionalClasse = classeRepository.findById(String.valueOf(id));
+        Optional<Classe> optionalClasse = classeRepository.findById(id);
         if (optionalClasse.isPresent()) {
-            classeRepository.deleteById(String.valueOf(id));
+            classeRepository.deleteById(id);
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();
