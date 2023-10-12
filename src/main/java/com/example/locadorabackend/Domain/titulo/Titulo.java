@@ -9,7 +9,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -65,9 +64,7 @@ public class Titulo implements Serializable {
         this.atores = requestTitulo.atores();
         this.diretor = requestTitulo.diretor();
         this.classe = requestTitulo.classe();
-
-        // Verifica se a lista de itens é nula e atribui uma lista vazia caso seja
-        this.itens = requestTitulo.itens() != null ? requestTitulo.itens() : new ArrayList<>();
+        this.itens = requestTitulo.itens();
     }
 
 }

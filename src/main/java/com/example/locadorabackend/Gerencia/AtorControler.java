@@ -17,8 +17,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/ator")
 public class AtorControler {
-    //"senha Banco De Dados": 4CGFBNShvym035rQ
-
     @Autowired
     private ActorRepository actorRepository;
 
