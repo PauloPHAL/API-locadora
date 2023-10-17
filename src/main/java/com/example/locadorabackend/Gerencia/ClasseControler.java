@@ -39,14 +39,9 @@ public class ClasseControler {
 
     @PostMapping
     public ResponseEntity setActor(@RequestBody @Validated RequestClasse data) {
-        Date dataDevolucao = data.getDataDevolucaoAsDate();
-        if (dataDevolucao != null) {
-            Classe classe = new Classe(data.nome(), data.valor(), dataDevolucao);
-            this.classeRepository.save(classe);
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.badRequest().body("Formato de data inválido");
-        }
+        Classe classe = new Classe(data);
+        this.classeRepository.save(classe);
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping("/{id}")

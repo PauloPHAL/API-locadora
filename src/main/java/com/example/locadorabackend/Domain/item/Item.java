@@ -1,6 +1,7 @@
 package com.example.locadorabackend.Domain.item;
 
 import com.example.locadorabackend.Domain.titulo.Titulo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
@@ -42,5 +43,24 @@ public class Item implements Serializable {
         this.titulo = requestItem.titulo();
     }
 
+    @JsonIgnoreProperties("itens")
+    public Titulo getTitulo() {
+        return titulo;
+    }
 
+    public void setNumSerie(String numSerie) {
+        this.numSerie = numSerie;
+    }
+
+    public void setDataAquisicao(Date dataAquisicao) {
+        this.dataAquisicao = dataAquisicao;
+    }
+
+    public void setTipoItem(String tipoItem) {
+        this.tipoItem = tipoItem;
+    }
+
+    public void setTitulo(Titulo titulo) {
+        this.titulo = titulo;
+    }
 }

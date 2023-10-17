@@ -29,30 +29,19 @@ public class Classe implements Serializable {
     @Temporal (TemporalType.DATE)
     private Date dataDevolucao;
 
-    public Classe(String nome, int valor, Date dataDevolucao) {
-        this.nome = nome;
-        this.valor = valor;
-        this.dataDevolucao = dataDevolucao;
+    public Classe(RequestClasse requestClasse) {
+        this.nome = requestClasse.nome();
+        this.valor = requestClasse.valor();
+        this.dataDevolucao = requestClasse.getDataDevolucaoAsDate();
     }
 
-    public String getNome() {
-        return nome;
-    }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public int getValor() {
-        return valor;
-    }
-
     public void setValor(int valor) {
         this.valor = valor;
-    }
-
-    public Date getDataDevolucao() {
-        return dataDevolucao;
     }
 
     public void setDataDevolucao(Date dataDevolucao) {

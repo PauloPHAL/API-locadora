@@ -67,4 +67,35 @@ public class Titulo implements Serializable {
         this.itens = requestTitulo.itens();
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setAtores(List<Actor> atores) {
+        this.atores = atores;
+    }
+
+    public void setDiretor(Diretor diretor) {
+        this.diretor = diretor;
+    }
+
+    public void setClasse(Classe classe) {
+        this.classe = classe;
+    }
+
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
+    }
 }
