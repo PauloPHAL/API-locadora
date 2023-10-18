@@ -4,8 +4,11 @@ package com.example.locadorabackend.Gerencia;
 import com.example.locadorabackend.Domain.actor.Actor;
 import com.example.locadorabackend.Domain.actor.ActorRepository;
 import com.example.locadorabackend.Domain.actor.RequestActor;
+import com.example.locadorabackend.Domain.titulo.Titulo;
+import com.example.locadorabackend.Domain.titulo.TituloRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +22,8 @@ import java.util.Optional;
 public class AtorControler {
     @Autowired
     private ActorRepository actorRepository;
+    @Autowired
+    private TituloRepository tituloRepository;
 
     @GetMapping
     public List<Actor> getAllAtor(){
@@ -55,12 +60,18 @@ public class AtorControler {
     public ResponseEntity<?> excluirAtor(@PathVariable Long id) {
         Optional<Actor> optionalAtor = actorRepository.findById(id);
         if (optionalAtor.isPresent()) {
+            if (isAtorAssociadoATitulos(optionalAtor.get())) {
+                return ResponseEntity.badRequest().body("O ator está associado a títulos e não pode ser excluído.");
+            }
             actorRepository.deleteById(id);
             return ResponseEntity.ok().build();
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nao Encontrado no Banco");
         }
     }
 
-
+    private boolean isAtorAssociadoATitulos(Actor ator){
+        List<Titulo> titulosAssociados = tituloRepository.findByAtoresContains(ator);
+        return !titulosAssociados.isEmpty();
+    }
 }

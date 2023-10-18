@@ -5,8 +5,11 @@ import com.example.locadorabackend.Domain.classe.Classe;
 import com.example.locadorabackend.Domain.classe.ClasseRepository;
 import com.example.locadorabackend.Domain.classe.RequestClasse;
 import com.example.locadorabackend.Domain.diretor.Diretor;
+import com.example.locadorabackend.Domain.titulo.Titulo;
+import com.example.locadorabackend.Domain.titulo.TituloRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +28,9 @@ public class ClasseControler {
 
     @Autowired
     private ClasseRepository classeRepository;
+
+    @Autowired
+    private TituloRepository tituloRepository;
 
     @GetMapping
     public List<Classe> getAllClasse(){
@@ -63,11 +69,18 @@ public class ClasseControler {
     public ResponseEntity<?> excluirClasse(@PathVariable Long id) {
         Optional<Classe> optionalClasse = classeRepository.findById(id);
         if (optionalClasse.isPresent()) {
+
+            if (isClasseAssociadoATitulos(optionalClasse.get())) {
+                return ResponseEntity.badRequest().body("A Classe está associada a títulos e não pode ser excluída.");
+            }
             classeRepository.deleteById(id);
             return ResponseEntity.ok().build();
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nao Encontrado no Banco");
         }
     }
 
+    private boolean isClasseAssociadoATitulos(Classe classe){
+        return tituloRepository.existsByClasse(classe);
+    }
 }
