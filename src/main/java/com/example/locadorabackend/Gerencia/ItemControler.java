@@ -1,8 +1,8 @@
 package com.example.locadorabackend.Gerencia;
 
-import com.example.locadorabackend.Domain.item.Item;
-import com.example.locadorabackend.Domain.item.ItemRepository;
-import com.example.locadorabackend.Domain.item.RequestItem;
+import com.example.locadorabackend.Domain.Controle_Acervo.item.Item;
+import com.example.locadorabackend.Domain.Controle_Acervo.item.ItemRepository;
+import com.example.locadorabackend.Domain.Controle_Acervo.item.RequestItem;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

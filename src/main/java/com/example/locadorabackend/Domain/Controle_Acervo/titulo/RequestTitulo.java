@@ -1,9 +1,9 @@
-package com.example.locadorabackend.Domain.titulo;
+package com.example.locadorabackend.Domain.Controle_Acervo.titulo;
 
-import com.example.locadorabackend.Domain.actor.Actor;
-import com.example.locadorabackend.Domain.classe.Classe;
-import com.example.locadorabackend.Domain.diretor.Diretor;
-import com.example.locadorabackend.Domain.item.Item;
+import com.example.locadorabackend.Domain.Controle_Acervo.classe.Classe;
+import com.example.locadorabackend.Domain.Controle_Acervo.diretor.Diretor;
+import com.example.locadorabackend.Domain.Controle_Acervo.actor.Actor;
+import com.example.locadorabackend.Domain.Controle_Acervo.item.Item;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.List;

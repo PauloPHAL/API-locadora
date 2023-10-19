@@ -1,4 +1,4 @@
-package com.example.locadorabackend.Domain.diretor;
+package com.example.locadorabackend.Domain.Controle_Acervo.diretor;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;

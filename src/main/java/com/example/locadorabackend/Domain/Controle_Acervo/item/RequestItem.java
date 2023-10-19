@@ -1,6 +1,6 @@
-package com.example.locadorabackend.Domain.item;
+package com.example.locadorabackend.Domain.Controle_Acervo.item;
 
-import com.example.locadorabackend.Domain.titulo.Titulo;
+import com.example.locadorabackend.Domain.Controle_Acervo.titulo.Titulo;
 import jakarta.validation.constraints.NotBlank;
 
 import java.text.SimpleDateFormat;

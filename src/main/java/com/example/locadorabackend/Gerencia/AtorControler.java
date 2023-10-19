@@ -1,11 +1,11 @@
 package com.example.locadorabackend.Gerencia;
 
 
-import com.example.locadorabackend.Domain.actor.Actor;
-import com.example.locadorabackend.Domain.actor.ActorRepository;
-import com.example.locadorabackend.Domain.actor.RequestActor;
-import com.example.locadorabackend.Domain.titulo.Titulo;
-import com.example.locadorabackend.Domain.titulo.TituloRepository;
+import com.example.locadorabackend.Domain.Controle_Acervo.actor.Actor;
+import com.example.locadorabackend.Domain.Controle_Acervo.actor.ActorRepository;
+import com.example.locadorabackend.Domain.Controle_Acervo.actor.RequestActor;
+import com.example.locadorabackend.Domain.Controle_Acervo.titulo.Titulo;
+import com.example.locadorabackend.Domain.Controle_Acervo.titulo.TituloRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
-package com.example.locadorabackend.Domain.item;
+package com.example.locadorabackend.Domain.Controle_Acervo.item;
 
-import com.example.locadorabackend.Domain.titulo.Titulo;
+import com.example.locadorabackend.Domain.Controle_Acervo.titulo.Titulo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;

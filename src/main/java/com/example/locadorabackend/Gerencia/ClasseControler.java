@@ -1,12 +1,9 @@
 package com.example.locadorabackend.Gerencia;
 
-import com.example.locadorabackend.Domain.actor.Actor;
-import com.example.locadorabackend.Domain.classe.Classe;
-import com.example.locadorabackend.Domain.classe.ClasseRepository;
-import com.example.locadorabackend.Domain.classe.RequestClasse;
-import com.example.locadorabackend.Domain.diretor.Diretor;
-import com.example.locadorabackend.Domain.titulo.Titulo;
-import com.example.locadorabackend.Domain.titulo.TituloRepository;
+import com.example.locadorabackend.Domain.Controle_Acervo.classe.Classe;
+import com.example.locadorabackend.Domain.Controle_Acervo.classe.ClasseRepository;
+import com.example.locadorabackend.Domain.Controle_Acervo.classe.RequestClasse;
+import com.example.locadorabackend.Domain.Controle_Acervo.titulo.TituloRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,10 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,11 +1,10 @@
-package com.example.locadorabackend.Domain.classe;
+package com.example.locadorabackend.Domain.Controle_Acervo.classe;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.text.ParseException;
 import java.util.Date;
 
 @Data

@@ -1,4 +1,4 @@
-package com.example.locadorabackend.Domain.classe;
+package com.example.locadorabackend.Domain.Controle_Acervo.classe;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

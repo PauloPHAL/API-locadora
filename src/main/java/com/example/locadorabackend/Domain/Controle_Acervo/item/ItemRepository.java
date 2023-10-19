@@ -1,4 +1,4 @@
-package com.example.locadorabackend.Domain.item;
+package com.example.locadorabackend.Domain.Controle_Acervo.item;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
