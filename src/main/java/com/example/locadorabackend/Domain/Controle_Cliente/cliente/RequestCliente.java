@@ -33,10 +33,4 @@ public record RequestCliente (
         }
     }
 
-//    public boolean stringToBoolean() {
-//        String lowercaseValue = isAtivo.trim().toLowerCase();
-//
-//
-//        return lowercaseValue.equals("true");
-//    }
 }

@@ -14,13 +14,13 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("Socio")
 public class Socio extends Cliente implements Serializable {
-    @Column(length =14 ,nullable = false, updatable = false)
+    @Column(length =14 , updatable = false)
     private String cpf;
 
-    @Column(length =30 ,nullable = false)
+    @Column(length =30 )
     private String telefone;
 
-    @Column(length =100 ,nullable = false)
+    @Column(length =100 )
     private String endereco;
 
     @OneToMany(mappedBy = "socio", fetch = FetchType.EAGER)
@@ -34,4 +34,6 @@ public class Socio extends Cliente implements Serializable {
         this.endereco = requestCliente.endereco();
         this.dependentes = requestCliente.dependentes();
     }
+
+
 }

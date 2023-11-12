@@ -18,7 +18,7 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_cliente")
-public class Cliente implements Serializable {
+public abstract class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("_id")

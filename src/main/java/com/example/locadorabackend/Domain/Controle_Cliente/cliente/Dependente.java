@@ -1,6 +1,7 @@
 package com.example.locadorabackend.Domain.Controle_Cliente.cliente;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,5 +24,10 @@ public class Dependente extends Cliente implements Serializable {
     public Dependente(RequestCliente requestCliente) {
         super(requestCliente);
         this.socio = requestCliente.socio();
+    }
+
+    @JsonIgnoreProperties("dependentes")
+    public Socio getSocio() {
+        return socio;
     }
 }
