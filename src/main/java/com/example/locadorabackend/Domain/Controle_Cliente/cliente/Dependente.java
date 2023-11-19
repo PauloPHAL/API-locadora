@@ -30,4 +30,8 @@ public class Dependente extends Cliente implements Serializable {
     public Socio getSocio() {
         return socio;
     }
+
+    public void setSocio(Socio socio) {
+        this.socio = socio;
+    }
 }

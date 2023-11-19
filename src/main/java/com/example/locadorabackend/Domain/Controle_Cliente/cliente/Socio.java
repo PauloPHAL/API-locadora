@@ -35,5 +35,25 @@ public class Socio extends Cliente implements Serializable {
         this.dependentes = requestCliente.dependentes();
     }
 
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setDependentes(List<Dependente> dependentes) {
+        this.dependentes = dependentes;
+    }
+
+    public List<Dependente> getDependentes() {
+        return dependentes;
+    }
+
 
 }

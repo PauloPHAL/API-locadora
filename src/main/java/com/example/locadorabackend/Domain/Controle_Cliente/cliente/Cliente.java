@@ -56,7 +56,39 @@ public abstract class Cliente implements Serializable {
         this.tipo = requestCliente.tipoCliente();
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public void setNumInscricao(String numInscricao) {
+        this.numInscricao = numInscricao;
+    }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
+    public void setDtNascimento(Date dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        isAtivo = ativo;
+    }
+
+    public void setLocacoes(List<Locacao> locacoes) {
+        this.locacoes = locacoes;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

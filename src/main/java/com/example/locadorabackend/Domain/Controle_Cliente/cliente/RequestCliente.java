@@ -32,5 +32,7 @@ public record RequestCliente (
             return null;
         }
     }
-
+    public Long getSocioId() {
+        return socio.getId();
+    }
 }
