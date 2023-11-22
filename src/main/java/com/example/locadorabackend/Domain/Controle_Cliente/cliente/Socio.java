@@ -1,5 +1,7 @@
 package com.example.locadorabackend.Domain.Controle_Cliente.cliente;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,6 +25,7 @@ public class Socio extends Cliente implements Serializable {
     @Column(length =100 )
     private String endereco;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "socio", fetch = FetchType.EAGER)
     private List<Dependente> dependentes;
 
@@ -51,9 +54,7 @@ public class Socio extends Cliente implements Serializable {
         this.dependentes = dependentes;
     }
 
-    public List<Dependente> getDependentes() {
-        return dependentes;
-    }
+
 
 
 }

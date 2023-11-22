@@ -2,7 +2,10 @@ package com.example.locadorabackend.Domain.Controle_Cliente.cliente;
 
 
 import com.example.locadorabackend.Domain.Controle_Cliente.locacao.Locacao;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,6 +21,11 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_cliente")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Socio.class, name = "Socio"),
+        @JsonSubTypes.Type(value = Dependente.class, name = "Dependente")
+})
 public abstract class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,6 +48,7 @@ public abstract class Cliente implements Serializable {
     @Column
     private boolean isAtivo;
 
+    //@JsonManagedReference
     @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
     private List<Locacao> locacoes;
 

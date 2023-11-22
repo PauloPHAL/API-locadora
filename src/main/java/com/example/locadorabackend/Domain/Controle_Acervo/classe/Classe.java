@@ -46,4 +46,12 @@ public class Classe implements Serializable {
     public void setDataDevolucao(Date dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
 }

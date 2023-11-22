@@ -1,6 +1,7 @@
 package com.example.locadorabackend.Domain.Controle_Cliente.cliente;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,6 +18,7 @@ import java.io.Serializable;
 @DiscriminatorValue("Dependente")
 public class Dependente extends Cliente implements Serializable {
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idSocio")
     private Socio socio;
@@ -26,10 +28,6 @@ public class Dependente extends Cliente implements Serializable {
         this.socio = requestCliente.socio();
     }
 
-    @JsonIgnoreProperties("dependentes")
-    public Socio getSocio() {
-        return socio;
-    }
 
     public void setSocio(Socio socio) {
         this.socio = socio;

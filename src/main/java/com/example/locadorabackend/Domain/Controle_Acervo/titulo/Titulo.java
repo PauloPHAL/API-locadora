@@ -4,6 +4,7 @@ import com.example.locadorabackend.Domain.Controle_Acervo.classe.Classe;
 import com.example.locadorabackend.Domain.Controle_Acervo.diretor.Diretor;
 import com.example.locadorabackend.Domain.Controle_Acervo.actor.Actor;
 import com.example.locadorabackend.Domain.Controle_Acervo.item.Item;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
@@ -97,5 +98,9 @@ public class Titulo implements Serializable {
 
     public void setItens(List<Item> itens) {
         this.itens = itens;
+    }
+
+    public Classe getClasse() {
+        return classe;
     }
 }
