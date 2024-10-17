@@ -30,6 +30,7 @@ public class ItemControler {
         return item.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @SuppressWarnings("rawtypes")
     @PostMapping
     public ResponseEntity setItem(@RequestBody @Validated RequestItem data){
         Item item = new Item(data);

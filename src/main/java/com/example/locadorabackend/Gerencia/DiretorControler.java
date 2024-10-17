@@ -36,6 +36,7 @@ public class DiretorControler {
         return diretor.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @SuppressWarnings("rawtypes")
     @PostMapping
     public ResponseEntity setActor(@RequestBody @Validated RequestDiretor data){
         Diretor diretor = new Diretor(data);

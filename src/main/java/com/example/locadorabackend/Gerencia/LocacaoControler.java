@@ -1,7 +1,5 @@
 package com.example.locadorabackend.Gerencia;
 
-
-import com.example.locadorabackend.Domain.Controle_Acervo.actor.Actor;
 import com.example.locadorabackend.Domain.Controle_Acervo.item.Item;
 import com.example.locadorabackend.Domain.Controle_Cliente.locacao.Locacao;
 import com.example.locadorabackend.Domain.Controle_Cliente.locacao.LocacaoRepository;
@@ -28,6 +26,7 @@ public class LocacaoControler {
         return locacaoRepository.findAll();
     }
 
+    @SuppressWarnings("rawtypes")
     @PostMapping
     public ResponseEntity setLocacao(@RequestBody @Validated RequestLocacao data){
         Item item = data.item();

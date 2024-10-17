@@ -31,6 +31,7 @@ public class TituloControler {
         return titulo.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @SuppressWarnings("rawtypes")
     @PostMapping
     public ResponseEntity setTitulo(@RequestBody @Validated RequestTitulo data){
         Titulo titulo = new Titulo(data);

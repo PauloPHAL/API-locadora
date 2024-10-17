@@ -2,8 +2,6 @@ package com.example.locadorabackend.Domain.Controle_Cliente.locacao;
 
 import com.example.locadorabackend.Domain.Controle_Acervo.item.Item;
 import com.example.locadorabackend.Domain.Controle_Cliente.cliente.Cliente;
-import com.example.locadorabackend.Domain.Controle_Cliente.cliente.Dependente;
-import com.example.locadorabackend.Domain.Controle_Cliente.cliente.Socio;
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.*;

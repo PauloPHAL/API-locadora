@@ -36,6 +36,7 @@ public class ClasseControler {
         return classe.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @SuppressWarnings("rawtypes")
     @PostMapping
     public ResponseEntity setActor(@RequestBody @Validated RequestClasse data) {
         Classe classe = new Classe(data);

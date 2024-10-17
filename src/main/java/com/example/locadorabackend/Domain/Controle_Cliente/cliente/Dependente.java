@@ -2,21 +2,18 @@ package com.example.locadorabackend.Domain.Controle_Cliente.cliente;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.io.Serializable;
 
 
-@Data
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @DiscriminatorValue("Dependente")
-public class Dependente extends Cliente implements Serializable {
+public class Dependente extends Cliente  {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)

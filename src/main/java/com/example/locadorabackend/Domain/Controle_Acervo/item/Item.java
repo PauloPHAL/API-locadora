@@ -1,7 +1,6 @@
 package com.example.locadorabackend.Domain.Controle_Acervo.item;
 
 import com.example.locadorabackend.Domain.Controle_Acervo.titulo.Titulo;
-import com.example.locadorabackend.Domain.Controle_Cliente.locacao.Locacao;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -9,7 +8,6 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @Entity

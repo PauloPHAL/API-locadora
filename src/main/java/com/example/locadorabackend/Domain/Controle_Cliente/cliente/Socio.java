@@ -1,21 +1,20 @@
 package com.example.locadorabackend.Domain.Controle_Cliente.cliente;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.io.Serializable;
+
 import java.util.List;
 
-@Data
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @DiscriminatorValue("Socio")
-public class Socio extends Cliente implements Serializable {
+public class Socio extends Cliente {
     @Column(length =14 , updatable = false)
     private String cpf;
 

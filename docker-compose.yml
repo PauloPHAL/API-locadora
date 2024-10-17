@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres-locadora
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: locadora
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - locadora-network
+
+networks:
+  tcc-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

@@ -36,6 +36,7 @@ public class AtorControler {
         return ator.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @SuppressWarnings("rawtypes")
     @PostMapping
     public ResponseEntity setActor(@RequestBody @Validated RequestActor data){
         Actor ator = new Actor(data);

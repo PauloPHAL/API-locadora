@@ -1,8 +1,5 @@
 package com.example.locadorabackend.Gerencia;
 
-import com.example.locadorabackend.Domain.Controle_Acervo.classe.Classe;
-import com.example.locadorabackend.Domain.Controle_Acervo.item.Item;
-import com.example.locadorabackend.Domain.Controle_Acervo.item.RequestItem;
 import com.example.locadorabackend.Domain.Controle_Cliente.cliente.*;
 import lombok.AllArgsConstructor;
 import org.jetbrains.annotations.NotNull;
@@ -49,6 +46,7 @@ public class ClienteControler {
         return cliente.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @SuppressWarnings("rawtypes")
     @PostMapping
     public ResponseEntity setCliente(@RequestBody @Validated RequestCliente data){
         if(data.tipoCliente().equals("Socio")){
